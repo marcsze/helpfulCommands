@@ -1,0 +1,7 @@
+$nano test
+
+for file in *fna.groups; do
+	mv "$file" "${file//fna/unique}"
+done
+
+

@@ -1,0 +1,35 @@
+###########################################################################
+#First try at manually making a group file
+#Keeps anything with ">" in it
+
+grep -e '^>' V2.fasta > test.fasta
+
+#Gets rid of everything after "_"
+
+sed 's/>//' test.fasta > test2.fasta
+sed 's/_.*//' test2.fasta > test3.fasta
+
+#Gets rid of everything before "_"
+
+sed 's/.*_//' test2.fasta > test4.fasta
+
+#Gets rid of random tag along DNA sequences
+
+sed 's/\s.*$//' test4.fasta > test5.fasta
+
+#Combine files together
+
+paste -d" " test5.fasta test3.fasta > test.groups
+
+#############################################################################
+###Alternative maybe right method for group file in twin study
+
+# get rid of all spaces like before
+#but this time need to keep full length of name
+sed 's/\s.*$//' test2.fasta > test5.fasta
+
+#Combine the two files together in a column format
+paste -d" " test5.fasta test3.fasta > test.groups
+
+
+

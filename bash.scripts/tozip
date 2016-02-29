@@ -1,0 +1,9 @@
+$nano test
+
+for tozip in $(ls *.fasta)
+do
+	tar -zcvf ${tozip}.tgz $tozip
+	rm $tozip
+done
+
+
