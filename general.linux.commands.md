@@ -106,6 +106,22 @@ metadata might be found at http://www.ncbi.nlm.nih.gov/Traces/study/
 
 curl http://api.metagenomics.an1.gov/1/download/mgmXXXXXX.3?file=XXX.X > mgmXXXXX.3/gz
 
+*Downloading from Dropbox*  
+1. Find a directory or file you want and select "share"
+2.  From here select the "create link" option and copy it  
+3. EXTRA NOTE:
+	* Need to make sure to change the end of the link from dl=0 to dl=1
+	
+* Download single file using a username and password (to be asked - best to use this interactively)
+	* `wget --max-redirect=20 --user marcasze@gmail.com --ask-password https://www.dropbox.com/s/rb35a072x3b079r/1.TCA.454Reads.fna?dl=1`
+  	
+* Download using a username and password a whole directory (zipped)
+	* `wget -O weir.zip marcasze@gmail.com --ask-password https://www.dropbox.com/sh/d35oug6b2k7blcx/AACSx4aPKIF1RCbB3r1koqwSa?dl=1`
+  			
+* Download a whole directory without using a username and passwork (zipped)
+	* `wget -O weir.zip https://www.dropbox.com/sh/d35oug6b2k7blcx/AACSx4aPKIF1RCbB3r1koqwSa?dl=1`
+
+
 **Convert SRA to specific file type**
 
 *fastq-dump XXXXXXX.sra

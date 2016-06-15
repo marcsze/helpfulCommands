@@ -251,5 +251,34 @@ ls -R | grep .pbs$
 
 rename 'xyz.file' 'xyz123.file' *file
 
+## Find a specific sequence and get the line after it
+#### The >> appends the selection to the bottom of the existing file.
+#### The -w option means whole line must match
+grep -w -A 1 'M00967_106_000000000-A9Y1K_1_2110_10786_12268' input.file >> test.fasta
+
+
+## Downloading from dropbox
+# Find a directory or file you want and select "share"
+# From here select the "create link" option and copy it  
+# EXTRA NOTE:
+	# Need to make sure to change the end of the link from dl=0 to dl=1
+	
+		#download single file using a username and password (to be asked - best to use this interactively)
+			wget --max-redirect=20 --user marcasze@gmail.com --ask-password 
+			https://www.dropbox.com/s/rb35a072x3b079r/1.TCA.454Reads.fna?dl=1
+			
+		#download using a username and password a whole directory (zipped)
+			wget -O weir.zip marcasze@gmail.com --ask-password 
+			https://www.dropbox.com/sh/d35oug6b2k7blcx/AACSx4aPKIF1RCbB3r1koqwSa?dl=1
+			
+		#download a whole directory without using a username and passwork (zipped)
+			wget -O weir.zip https://www.dropbox.com/sh/d35oug6b2k7blcx/AACSx4aPKIF1RCbB3r1koqwSa?dl=1
+
+
+
+
+
+
+
 
 
